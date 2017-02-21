@@ -13,15 +13,18 @@ Update constants in =fabfile.py=
 =fab push_image=
 ** Connect to your kubernetes cluster
 #+BEGIN_SRC bash :results output
-  gcloud container clusters get-credentials caffe
+  gcloud container clusters get-credentials your-cluster-name
 #+END_SRC
 ** Create and configure database
-=fab configure_db=
+=fab setup_db=
 * Maintenance
 ** Start postgress shell
 =fab postgres_shell=
+** SQL alchemy connection string
+=print_alchemy_connection_string=
 ** Delete database
 Be careful to not do it on prod.
 #+BEGIN_SRC bash :results output
-  helm delete --purge tensorflight-postgres
+  export CHART_NAME=tensorflight-postgres
+  helm delete --purge $CHART_NAME
 #+END_SRC
