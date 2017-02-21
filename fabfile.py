@@ -18,8 +18,13 @@ def _get_password():
 
 
 @task
-def push_image():
+def build_image():
     local("docker build -t {} .".format(FULL_IMAGE_NAME))
+
+
+@task
+def push_image():
+    build_image()
     local("gcloud docker push {}".format(FULL_IMAGE_NAME))
 
 
