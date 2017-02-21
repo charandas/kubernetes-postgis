@@ -21,7 +21,9 @@ Update constants in =fabfile.py=
 ** Start postgress shell
 =fab postgres_shell=
 ** SQL alchemy connection string
-=print_alchemy_connection_string=
+Password is different on each cluster, so do not hardcode it.
+
+=fab print_alchemy_connection_string=
 ** Delete database
 Be careful to not do it on prod.
 #+BEGIN_SRC bash :results output
