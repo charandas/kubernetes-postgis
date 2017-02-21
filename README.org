@@ -1,8 +1,8 @@
 * Introduction
-Run postgis on kubernetes, based on custom postgres image and kubernetes helm chart.
+Run postgis on kubernetes.
 
-Postgres setup is based on mix of https://github.com/docker-library/postgres and https://github.com/appropriate/docker-postgis .
-Kubernetes setup is using the helm chart: https://github.com/kubernetes/charts/tree/master/stable/postgresql
+- Postgres setup is based on mix of https://github.com/docker-library/postgres and https://github.com/appropriate/docker-postgis .
+- Kubernetes setup is using the helm chart: https://github.com/kubernetes/charts/tree/master/stable/postgresql
 * Pre-requsities
 - Python fabric
 - Kubernetes helm
