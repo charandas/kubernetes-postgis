@@ -1,0 +1,27 @@
+* Introduction
+Run postgis on kubernetes, based on custom postgres image and kubernetes helm chart.
+
+Postgres setup is based on mix of https://github.com/docker-library/postgres and https://github.com/appropriate/docker-postgis .
+Kubernetes setup is using the helm chart: https://github.com/kubernetes/charts/tree/master/stable/postgresql
+* Pre-requsities
+- Python fabric
+- Kubernetes helm
+* Installation
+** Update constants
+Update constants in =fabfile.py=
+** Push image
+=fab push_image=
+** Connect to your kubernetes cluster
+#+BEGIN_SRC bash :results output
+  gcloud container clusters get-credentials caffe
+#+END_SRC
+** Create and configure database
+=fab configure_db=
+* Maintenance
+** Start postgress shell
+=fab postgres_shell=
+** Delete database
+Be careful to not do it on prod.
+#+BEGIN_SRC bash :results output
+  helm delete --purge tensorflight-postgres
+#+END_SRC
