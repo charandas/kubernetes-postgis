@@ -3,6 +3,8 @@ Run postgis on kubernetes.
 
 - Postgres setup is based on mix of https://github.com/docker-library/postgres and https://github.com/appropriate/docker-postgis .
 - Kubernetes setup is using the helm chart: https://github.com/kubernetes/charts/tree/master/stable/postgresql
+  
+Also includes tiny extension uuid-ossp.
 * Pre-requsities
 - Python fabric (pip2 install fabric)
 - Kubernetes helm (kubernetes-helm in arch-linux AUR)
