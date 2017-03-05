@@ -1,5 +1,5 @@
 * Introduction
-Run postgis on kubernetes.
+Run postgis on kubernetes. Warning: Very opinionated setup we use for our services.
 
 - Postgres setup is based on mix of https://github.com/docker-library/postgres and https://github.com/appropriate/docker-postgis .
 - Kubernetes setup is using the helm chart: https://github.com/kubernetes/charts/tree/master/stable/postgresql
