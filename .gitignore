@@ -1,3 +1,4 @@
 .projectile
 *.tgz
+*.pyc
 __pycache__
