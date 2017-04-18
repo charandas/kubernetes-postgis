@@ -31,7 +31,7 @@ def push_image():
 @task
 def setup_db():
     # Install kubernetes-helm
-    local("helm init")
+    local("gcloud docker pull {}".format(FULL_IMAGE_NAME))
     local("helm install --name {CHART_NAME} \
     --set postgresDatabase=tensorflight,image={IMAGE_NAME},imageTag={IMAGE_TAG} stable/postgresql".format(
         IMAGE_NAME=IMAGE_NAME,
