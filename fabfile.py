@@ -5,7 +5,7 @@ import subprocess
 from fabric.decorators import task
 from fabric.operations import local
 
-IMAGE_NAME = "gcr.io/tensorflight/postgis"
+IMAGE_NAME = "tensorflight/postgis"
 IMAGE_TAG = "9.6-2.3"
 FULL_IMAGE_NAME = "{}:{}".format(IMAGE_NAME, IMAGE_TAG)
 CHART_NAME = "tensorflight-postgres"
@@ -25,7 +25,7 @@ def build_image():
 @task
 def push_image():
     build_image()
-    local("gcloud docker push {}".format(FULL_IMAGE_NAME))
+    local("docker push {}".format(FULL_IMAGE_NAME))
 
 
 @task
