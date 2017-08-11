@@ -40,28 +40,6 @@ def setup_db():
 
 
 @task
-def postgres_shell(command=None):
-    # Outside of kubernetes: psql -d tensorflight --username=postgres
-    if not command:
-        command = "psql -U postgres -h {CHART_NAME}-postgresql {DB_NAME}".format(
-            DB_NAME=DB_NAME,
-            CHART_NAME=CHART_NAME)
-
-    deployment = "{}-postgresql-client".format(CHART_NAME)
-    local("kubectl delete deployment {DEPLOYMENT} --ignore-not-found".format(
-        DEPLOYMENT=deployment))
-
-    local("""kubectl run {DEPLOYMENT} --rm --tty -i --image {FULL_IMAGE_NAME} \
-    --env "PGPASSWORD={PASS}" \
-    --command -- {COMMAND}
-    """.format(
-        FULL_IMAGE_NAME=FULL_IMAGE_NAME,
-        PASS=_get_password(),
-        DEPLOYMENT=deployment,
-        COMMAND=command))
-
-
-@task
 def print_alchemy_connection_string():
     print("Sql alchemy connection string. Note that each cluster will have different password:\n")
     address = "{}-postgresql.default.svc.cluster.local".format(CHART_NAME)
